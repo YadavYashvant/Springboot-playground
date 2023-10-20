@@ -1,8 +1,6 @@
 package com.yashvant.webspringboot.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RestEndpoints {
@@ -13,6 +11,11 @@ public class RestEndpoints {
             @RequestParam(value = "chapterCount", defaultValue = "25", required = false) int chapterCount
     ) {
         return new Course(name, chapterCount);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/register/course")
+    public String saveCourse(@RequestBody Course course) {
+        return "Your course named " + course.getName() + " with " + course.getChapterCount() + " chapters saved successfully.";
     }
 
 }
