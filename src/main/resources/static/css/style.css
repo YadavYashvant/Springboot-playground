@@ -46,8 +46,8 @@ td:hover{
 }
 
 .card:hover{
+    cursor: default;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.20);
-    cursor: pointer;
     transition: all ease-in-out .3s;
 }
 
@@ -95,5 +95,18 @@ li{
 button{
     padding: 10px;
     margin: 20px;
+    border: none;
+    background: black;
+    color: whitesmoke;
+    border-radius: 10px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+button:hover{
+    transition: all ease-in-out .2s;
+    background: green;
+    cursor: pointer;
 
 }
