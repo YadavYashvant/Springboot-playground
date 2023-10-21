@@ -1,14 +1,24 @@
 package com.yashvant.webspringboot.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import com.yashvant.webspringboot.model.Message;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
 public class HelloController {
 
-    @GetMapping("/")
-    public String index() {
-        return "Greetings from Yashvant Yadav!";
+    private final Message message;
+
+    public HelloController(Message message) {
+        this.message = message;
+    }
+
+    @GetMapping(path = "/message")
+    @ResponseBody
+    public String message() {
+        return message.get();
     }
 
 }
